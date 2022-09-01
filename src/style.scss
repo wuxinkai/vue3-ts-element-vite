@@ -1,0 +1,61 @@
+svg {
+    width: 1em;
+    height: 1em;
+}
+
+html,
+body,
+#app {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#app,
+.el-container {
+    height: 100%;
+}
+
+.el-menu {
+    height: calc(100% - 60px);
+}
+
+/*
+ 修改组件库的样式
+
+ 1. 需要自定义一个类名空间
+ 2. 在浏览器调试好样式
+ 3. 把调试好的样式放到这哥空间中
+ 4. 在app.vue中引入文件
+ 5. 在组件内需要该样式的父元素上引入这个命名空 间
+*/
+
+.pro-choose-icon-dialog-body {
+
+    .el-overlay-dialog {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .el-dialog:not(.is-fullscreen) {
+        margin-top: 0 !important;
+        max-height: 70vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .el-dialog__body {
+            flex: 1;
+            overflow: auto;
+            .el-form:not(.top-search) {
+                //  width: 80%;
+            }
+
+            .btn-right {
+                text-align: right;
+            }
+        }
+    }
+}
