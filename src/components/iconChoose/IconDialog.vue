@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+/**
+ * 选择图标
+ * 
+ * **/
 import { ref, watch } from "vue";
 import * as ElIcons from '@element-plus/icons-vue'
 import { toLine, useCopy } from '../../utils'

@@ -21,6 +21,9 @@ const isCollapse = ref(false);
       </template>
       <el-menu-item index="1-1" @click="clickRun('/iconChoose')">弹出组件</el-menu-item>
       <el-menu-item index="1-2" @click="clickRun('/chooseArea')">三级联动组件</el-menu-item>
+      <el-menu-item index="1-3" @click="clickRun('/trentViews')">趋势标记</el-menu-item>
+      <el-menu-item index="1-4" @click="clickRun('/notification')">tabs切换</el-menu-item>
+      <el-menu-item index="1-5" @click="clickRun('/menu')">菜单组件</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="2">
       <el-icon-menu> </el-icon-menu>

@@ -31,11 +31,38 @@ const routes: Array<RouteRecordRaw> = [
             path: '/chooseArea',
             name: 'chooseArea',
             meta: {
-                title: '图标选择器',
+                title: '三级联动',
                 icon: '',
                 keepalive: false
             },
             component: () => import('@/views/chooseArea/ChooseArea.vue'),
+        }, {
+            path: '/trentViews',
+            name: 'trentViews',
+            meta: {
+                title: '趋势标记' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/trent/trentViews.vue'),
+        }, {
+            path: '/notification',
+            name: 'notification',
+            meta: {
+                title: '趋势标记' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/notification/notification.vue'),
+        }, {
+            path: '/menu',
+            name: 'menu',
+            meta: {
+                title: '趋势标记' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/menu/menu.vue'),
         }]
     }
 ]

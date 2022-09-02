@@ -61,6 +61,63 @@ const toggle = () => {
 </template>
 ```
 ### 全局组件注册
+
+- 组件页面 components\iconChoose\IconDialog.vue
+- 组件页面 components\iconChoose\IconDialog.vue
+```
+import { App } from 'vue'
+import IconDialog from "./IconDialog.vue";
+
+
+//这个组件可以通过use的形式使用
+export default {
+    install(app: App) {
+        app.component('pro-icon-dialog', IconDialog)
+    }
+}
+```
+ 组件页面 components\index.ts
+```
+import { App } from 'vue'
+
+import chooseArea from './chooseArea'
+import iconChoose from './iconChoose'
+
+const components = [chooseArea, iconChoose,]
+
+export default {
+    install(app: App) {
+        components.map(item => {
+            app.use(item)
+        })
+    }
+}
+```
+min.ts页面引入
+```
+import proUI from './components'
+const app = createApp(App)
+app.use(proUI)
 ```
 
+####  v-bind="$attrs"  继承父页面上所有的属性
+子页面
+```
+<el-menu  v-bind="$attrs" > </el-menu>
+```
+父页面 上的所有属性都能通过 v-bind="$attrs"继承到子页面的 组件上
+```
+  <pro-menu :data="data1" defaultActive="2" text-color="green" active-text-color="red" background-color="#ccc"></pro-menu>
+```
+
+### jsx应用
+```
+npm i -D @vitejs/plugin-vue-jsx
+
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
+export default defineConfig({
+  plugins: [vue(), vueJsx()],
+})
 ```
