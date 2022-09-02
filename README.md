@@ -121,3 +121,8 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
 })
 ```
+### 菜单 自定义建名   （很重要）
+```
+``
+### ！感叹号表示一定有这个属性
+`

@@ -1,5 +1,5 @@
 import { toLine } from "@/utils";
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, useAttrs } from "vue";
 import { MenuItem } from "./types";
 import * as Icons from '@element-plus/icons-vue'
 export default defineComponent({
@@ -12,7 +12,7 @@ export default defineComponent({
         // 默认选中菜单
         defaultActive: {
             type: String,
-            default: "",
+            default: "", 
         },
         // 是否是路由模式
         router: {
@@ -20,6 +20,7 @@ export default defineComponent({
             default: false,
         }
     },
+    
     setup(props, ctx) {
         //封装一个无限极的菜单
         //函数返回一段jsx代码
@@ -53,8 +54,12 @@ export default defineComponent({
                 </el-menu-item>)
             })
         }
+
+
+        //在组件上注入其他属性
+        let attrs = useAttrs()
         return () => {
-            return (<el-menu class="menu-icon-svg" default-active={props.defaultActive} router={props.router} >
+            return (<el-menu class="menu-icon-svg" default-active={props.defaultActive} router={props.router} {...attrs} >
                 {renderMenu(props.data!)}
             </el-menu>);
         }

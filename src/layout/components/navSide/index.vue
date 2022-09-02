@@ -1,35 +1,55 @@
-<script lang="ts" setup>
-import { useRouter } from 'vue-router'
-import { ref } from "vue";
-const router = useRouter()
-const clickRun = (path: string) => {
-  router.push({ path });
-}
-const handleOpen = () => { }
-const handleClose = () => { }
 
-const isCollapse = ref(false);
+<script lang="ts" setup>
+import { ref } from "vue";
+let data1 = [
+  {
+    a: "有二级菜单",
+    b: "xxx",
+    c: "Document",
+    xxxx: [
+      {
+        a: "弹出组件",
+        b: "/iconChoose",
+        c: "Female",
+      },
+      {
+        a: "三级联动组件",
+        b: "/chooseArea",
+        c: "Male",
+      },
+      {
+        a: "趋势标记",
+        b: "/trentViews",
+        c: "Pointer",
+      },
+      {
+        a: "tabs切换",
+        b: "/notification",
+        c: "Star",
+      },
+      {
+        a: "菜单组件",
+        b: "/menu",
+        c: "PieChart",
+      }
+    ],
+  },
+];
+
+const opends = ref(["xxx"])
 
 </script>
 <template>
-  <el-menu default-active="2" :collapse="isCollapse" class="el-menu-vertical-demo" @open="handleOpen"
-    @close="handleClose">
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon-location></el-icon-location>
-        <span>有二级菜单</span>
-      </template>
-      <el-menu-item index="1-1" @click="clickRun('/iconChoose')">弹出组件</el-menu-item>
-      <el-menu-item index="1-2" @click="clickRun('/chooseArea')">三级联动组件</el-menu-item>
-      <el-menu-item index="1-3" @click="clickRun('/trentViews')">趋势标记</el-menu-item>
-      <el-menu-item index="1-4" @click="clickRun('/notification')">tabs切换</el-menu-item>
-      <el-menu-item index="1-5" @click="clickRun('/menu')">菜单组件</el-menu-item>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <el-icon-menu> </el-icon-menu>
-      <span>第一级菜单</span>
-    </el-menu-item>
-  </el-menu>
+  <!-- 增加router模式 -->
+  <!-- 
+    修改字段属性可以任何属性传进来
+    name="a" 
+    index="b" 
+    icon="c"
+   -->
+  <pro-menu :data="data1" name="a" index="b" icon="c" children="xxxx" :defaultActive="$route.path"
+    :default-openeds="opends" text-color="green" router active-text-color="red" background-color="#ccc">
+  </pro-menu>
 </template>
 <style lang="scss" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {

@@ -6,8 +6,9 @@
       <div style="width: 200px">
         <pro-infinite-menu
           :data="data2"
-          defaultActive="2"
+          defaultActive="1"
           text-color="green"
+          background-color="pink"
         ></pro-infinite-menu>
       </div>
     </div>
