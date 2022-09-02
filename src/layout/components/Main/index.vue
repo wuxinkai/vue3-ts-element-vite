@@ -56,4 +56,6 @@ watch(() => route, (newVal) => {
     padding-right: 0px;
   }
 }
+
+
 </style>

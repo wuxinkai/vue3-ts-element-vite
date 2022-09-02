@@ -31,6 +31,11 @@ let data1 = [
         a: "菜单组件",
         b: "/menu",
         c: "PieChart",
+      },
+      {
+        a: "进度条",
+        b: "/progress",
+        c: "PieChart",
       }
     ],
   },

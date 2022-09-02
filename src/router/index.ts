@@ -63,6 +63,15 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/menu/menu.vue'),
+        }, {
+            path: '/progress',
+            name: 'progress',
+            meta: {
+                title: '进度条' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/progress/progress.vue'),
         }]
     }
 ]

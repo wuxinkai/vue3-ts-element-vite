@@ -88,5 +88,10 @@ let data2 = [
   .container {
     display: flex;
     justify-content: space-around;
+  
+    ::v-deep svg {
+      width: 1em;
+      height: 1em;
+    }
   }
   </style>
