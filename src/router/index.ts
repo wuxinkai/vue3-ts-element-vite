@@ -72,6 +72,15 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/progress/progress.vue'),
+        }, {
+            path: '/chooseTime',
+            name: 'chooseTime',
+            meta: {
+                title: '时间选择器' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/chooseTime/chooseTime.vue'),
         }]
     }
 ]

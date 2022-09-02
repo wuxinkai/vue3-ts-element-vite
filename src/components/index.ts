@@ -7,7 +7,9 @@ import notification from './notification'
 import list from "./list";
 import menu from "./menu";
 import progress from "./progress";
-const components = [chooseArea, iconChoose, trent, notification, list,menu,progress]
+import chooseTime from "./chooseTime";
+import chooseDate from "./chooseDate";
+const components = [chooseArea, iconChoose, trent, notification, list, menu, progress, chooseTime,chooseDate]
 
 export default {
     install(app: App) {

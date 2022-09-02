@@ -36,6 +36,11 @@ let data1 = [
         a: "进度条",
         b: "/progress",
         c: "PieChart",
+      },
+      {
+        a: "时间选择器",
+        b: "/chooseTime",
+        c: "PieChart",
       }
     ],
   },
