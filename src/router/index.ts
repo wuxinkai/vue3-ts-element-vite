@@ -81,6 +81,24 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/chooseTime/chooseTime.vue'),
+        }, {
+            path: '/chooseCity',
+            name: 'chooseCity',
+            meta: {
+                title: '城市选择器' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/chooseCity/chooseCity.vue'),
+        }, {
+            path: '/from',
+            name: 'from',
+            meta: {
+                title: '表单' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/from/from.vue'),
         }]
     }
 ]

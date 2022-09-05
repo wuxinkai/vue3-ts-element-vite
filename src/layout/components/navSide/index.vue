@@ -41,6 +41,16 @@ let data1 = [
         a: "时间选择器",
         b: "/chooseTime",
         c: "PieChart",
+      },
+      {
+        a: "城市选择器",
+        b: "/chooseCity",
+        c: "PieChart",
+      },
+      {
+        a: "表单",
+        b: "/from",
+        c: "PieChart",
       }
     ],
   },

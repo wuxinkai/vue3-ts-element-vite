@@ -9,7 +9,9 @@ import menu from "./menu";
 import progress from "./progress";
 import chooseTime from "./chooseTime";
 import chooseDate from "./chooseDate";
-const components = [chooseArea, iconChoose, trent, notification, list, menu, progress, chooseTime,chooseDate]
+import chooseCity from "./chooseCity";
+import from from "./from";
+const components = [chooseArea, iconChoose, trent, notification, list, menu, progress, chooseTime, chooseDate, chooseCity, from]
 
 export default {
     install(app: App) {
