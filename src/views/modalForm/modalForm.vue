@@ -1,17 +1,39 @@
+
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { FormOptions, FormInstance } from '../../components/from/types/type'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ref } from "vue"
+import { FormOptions } from '../../components/from/types/type'
+import { ElMessage } from 'element-plus'
+let visible = ref<boolean>(false)
+let open = () => {
+    visible.value = true
+}
+
+let Cancel = () => {
+    visible.value = false
+}
+
+let Confirm = (form: any) => {
+    let validate = form.validate()
+    let model = form.getFormData()
+    validate((valid: any) => {
+        if (valid) {
+            ElMessage.success('验证成功')
+            visible.value = false
+            console.log('表单数据', model);
+        } else {
+            ElMessage.error('验证失败')
+        }
+    })
+}
+
+
+
 let options: FormOptions[] = [
     {
         type: 'input',
         value: '',
         label: '用户名',
-        placeholder: '请输入用户名',
-        prop: 'username',//做验证的名字， 字段的名字
-        attrs: {
-            clearable: true, //增加清空数据属性
-        },
+        prop: 'username',
         rules: [
             {
                 required: true,
@@ -24,13 +46,15 @@ let options: FormOptions[] = [
                 message: '用户名在2-6位置之间',
                 trigger: 'blur'
             }
-        ]
+        ],
+        attrs: {
+            clearable: true,
+        }
     },
     {
         type: 'input',
         value: '',
         label: '密码',
-        placeholder: '请输入密码',
         prop: 'password',
         rules: [
             {
@@ -51,29 +75,6 @@ let options: FormOptions[] = [
         }
     },
     {
-        type: 'input',
-        value: '',
-        label: '文本框',
-        placeholder: '请输入文本框',
-        prop: 'textarea',
-        attrs: {
-            rows: "4",
-            type: "textarea",
-            maxlength: 10,
-            showWordLimit: true,
-            // readonly: true,
-            // disabled: true,
-            resize: 'none'
-        },
-        rules: [
-            {
-                required: true,
-                message: '文本框不能为空',
-                trigger: 'blur'
-            }
-        ]
-    },
-    {//有子元素的菜单
         type: 'select',
         value: '',
         placeholder: '请选择职位',
@@ -88,7 +89,7 @@ let options: FormOptions[] = [
             {
                 required: true,
                 message: '职位不能为空',
-                trigger: 'blur'
+                trigger: 'change'
             }
         ],
         children: [
@@ -109,7 +110,7 @@ let options: FormOptions[] = [
             }
         ]
     },
-    {//多选框组
+    {
         type: 'checkbox-group',
         value: [],
         prop: 'like',
@@ -118,7 +119,7 @@ let options: FormOptions[] = [
             {
                 required: true,
                 message: '爱好不能为空',
-                trigger: 'blur'
+                trigger: 'change'
             }
         ],
         children: [
@@ -139,7 +140,7 @@ let options: FormOptions[] = [
             }
         ]
     },
-    { //单选框
+    {
         type: 'radio-group',
         value: '',
         prop: 'gender',
@@ -148,7 +149,7 @@ let options: FormOptions[] = [
             {
                 required: true,
                 message: '性别不能为空',
-                trigger: 'blur'
+                trigger: 'change'
             }
         ],
         children: [
@@ -169,7 +170,7 @@ let options: FormOptions[] = [
             }
         ]
     },
-    {//上传
+    {
         type: 'upload',
         label: '上传',
         prop: 'pic',
@@ -178,15 +179,15 @@ let options: FormOptions[] = [
             multiple: true,
             limit: 3
         },
-        // rules: [
-        //     {
-        //         required: true,
-        //         message: '哈哈哈',
-        //         trigger: 'blur'
-        //     }
-        // ]
+        rules: [
+            {
+                required: true,
+                message: '请上传文件',
+                trigger: 'blur'
+            }
+        ]
     },
-    { //富文本编辑器
+    {
         type: 'editor',
         value: '',
         prop: 'desc',
@@ -202,80 +203,36 @@ let options: FormOptions[] = [
 ]
 
 
-// 上传相关的所有事件
-let handleRemove = (file: any, fileList: any) => {
-    console.log('handleRemove')
-    console.log(file, fileList)
-}
-let handlePreview = (file: any) => {
-    console.log('handlePreview')
-    console.log(file)
-}
-let beforeRemove = (val: any) => {
-    console.log('beforeRemove')
-    return ElMessageBox.confirm(`删除提示 ${val.file.name} ?`)
-}
-let handleExceed = (val: any) => {
-    console.log('handleExceed', val)
-    ElMessage.warning(`上传提示 ${val.files.length} files this time, add up to ${val.files.length + val.fileList.length} totally`
-    )
-}
+// 上传成功
 let handleSuccess = (val: any) => {
-    console.log('success')
-    console.log(val)
+  console.log('success')
+  console.log(val)
 }
+// 上传事件 
 let handleChange = (val: any) => {
-    console.log('change')
-    console.log(val)
+  console.log('change')
+  console.log(val)
 }
-let handleBeforeUpload = (val: any) => {
-    console.log('handleBeforeUpload')
-    console.log(val)
-}
-//-------------------------------------------
-interface Scope {
-    form: FormInstance,
-    model: any,
-}
-//提交
-let submitForm = (scope: Scope) => {
-    scope.form.validate((valid) => {
-        if (valid) {
-            console.log(scope.model);
-            ElMessage.success('提交成功')
-            // resetForm()
-        } else {
-            ElMessage.error('表单填写错误')
-        }
-    });
-}
-let fromDom = ref()
-
-//重置
-let resetForm = (scope: Scope) => {
-    console.log('重置', scope.form);
-    //vue3的分发事件，调用子页面的resetFields事件
-    fromDom.value.resetFields()
-}
-
 </script>
 <template>
-    <pro-form ref="fromDom" :options='options' @on-change="handleChange" @before-upload="handleBeforeUpload"
-        @on-preview="handlePreview" @on-remove="handleRemove" @before-remove="beforeRemove" @on-success="handleSuccess"
-        @on-exceed="handleExceed">
+    <el-button type="primary" @click='open'>open</el-button>
+    <pro-modal-form title="编辑" :isScroll="true" v-model:visible="visible" :options="options"    :on-change="handleChange"
+      :on-success="handleSuccess">
         <template #uploadArea>
-            <el-button type="primary" size="small">点击上传</el-button>
+            <el-button size="small" type="primary">点击上传</el-button>
         </template>
         <template #uploadTip>
             <div style="color:#ccc;font-size:12px;">
-                上传提示信息
+                提示信息。。。。。。。。。。。。。
             </div>
         </template>
-        <template #action="scope">
-            <el-button type="primary" @click="submitForm(scope)">提 交</el-button>
-            <el-button @click='resetForm(scope)'>重 置</el-button>
+        <template #footer="{ form }">
+            <span class="dialog-footer">
+                <el-button @click="Cancel">取 消</el-button>
+                <el-button type="primary" @click="Confirm(form)">确 认</el-button>
+            </span>
         </template>
-    </pro-form>
+    </pro-modal-form>
 </template>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 </style>

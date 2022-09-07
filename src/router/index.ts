@@ -99,6 +99,24 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/from/from.vue'),
+        }, {
+            path: '/modalForm',
+            name: 'modalForm',
+            meta: {
+                title: '弹窗表单' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/modalForm/modalForm.vue'),
+        }, {
+            path: '/table',
+            name: 'table',
+            meta: {
+                title: '表格' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/table/table.vue'),
         }]
     }
 ]

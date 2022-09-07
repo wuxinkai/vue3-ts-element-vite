@@ -35,22 +35,32 @@ let data1 = [
       {
         a: "进度条",
         b: "/progress",
-        c: "PieChart",
+        c: "UserFilled",
       },
       {
         a: "时间选择器",
         b: "/chooseTime",
-        c: "PieChart",
+        c: "Tools",
       },
       {
         a: "城市选择器",
         b: "/chooseCity",
-        c: "PieChart",
+        c: "MessageBox",
       },
       {
         a: "表单",
         b: "/from",
-        c: "PieChart",
+        c: "MuteNotification",
+      },
+      {
+        a: "弹窗表单",
+        b: "/modalForm",
+        c: "Compass",
+      },
+      {
+        a: "表格",
+        b: "/table",
+        c: "Message",
       }
     ],
   },
