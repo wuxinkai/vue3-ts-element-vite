@@ -21,6 +21,8 @@ for (let i in Icons) {
     app.component(`el-icon-${toLine(i)}`, (Icons as any)[i])
 }
 
+import './mock'
+
 app.use(ElementPlus)
 app.use(Directive)
 app.use(createPinia())
