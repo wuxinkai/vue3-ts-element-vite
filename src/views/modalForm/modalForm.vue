@@ -215,8 +215,8 @@ let handleChange = (val: any) => {
 }
 </script>
 <template>
-    <el-button type="primary" @click='open'>open</el-button>
-    <pro-modal-form title="编辑" :isScroll="true" v-model:visible="visible" :options="options"    :on-change="handleChange"
+    <el-button type="primary" @click='open'>打开弹出</el-button>
+    <pro-modal-form title="编辑" :isScroll="true" labelWidth="80px" v-model:visible="visible" :options="options"    :on-change="handleChange"
       :on-success="handleSuccess">
         <template #uploadArea>
             <el-button size="small" type="primary">点击上传</el-button>

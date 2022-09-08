@@ -15,6 +15,10 @@ let props = defineProps({
         type: Boolean,
         default: false
     },
+    labelWidth: {
+        type: String,
+        default: 'auto'
+    },
     // 下面方法对应为处理上传事件
     onChange: {
         type: Function
@@ -65,7 +69,7 @@ let formDom = ref()
         <el-dialog v-model="dialogVisible" v-bind="$attrs">
             <!-- 表单内容 -->
             <template #default>
-                <pro-form isScroll :options="options" ref="formDom" label-width="80px" @on-change="onChange"
+                <pro-form isScroll :options="options" ref="formDom" :label-width="props.labelWidth" @on-change="onChange"
                     @before-upload="beforeUpload" @on-preview="onPreview" @on-remove="onRemove"
                     @before-remove="beforeRemove" @on-success="onSuccess" @on-exceed="onExceed">
                     <template #uploadArea>
