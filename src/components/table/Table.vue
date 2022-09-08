@@ -84,7 +84,6 @@ let tableOptions = computed(() => props.options.filter(item => !item.action))
 
 //过滤出操作列
 let actionOptions = computed(() => props.options.find(item => item.action))
-console.log(1111, actionOptions);
 
 
 //表格加载

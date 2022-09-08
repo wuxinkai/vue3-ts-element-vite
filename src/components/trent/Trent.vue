@@ -82,4 +82,8 @@ let textColor = computed(() => {
         margin-left: 6px;
     }
 }
+svg{
+    width: 1em;
+    height: 1em;
+}
 </style>

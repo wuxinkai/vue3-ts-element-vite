@@ -180,8 +180,9 @@ v-bind="$attrs" 继承input自带的属性
 :rules="rules" 验证数据
 :model="model" 存的是子菜单，所有属性名
  v-if="item.type !== 'upload'" 增加上传组件，上传组件没有children，还有就是不等于upload，
+  label-width="auto" 设置标题 自适应宽度
      -->
-    <el-form ref="form" v-if="model" :model="model" :rules="rules" :validate-on-rule-change='false' v-bind="$attrs">
+    <el-form ref="form" v-if="model" :model="model" :rules="rules" :validate-on-rule-change='false' v-bind="$attrs"  label-width="auto">
         <!-- 动态创建组件 -->
         <template v-for="(item, index) in options" :key="index">
             <el-form-item v-if="!item.children || !item.children!.length" :label="item.label" :prop="item.prop">

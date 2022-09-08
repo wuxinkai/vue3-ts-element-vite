@@ -123,6 +123,17 @@ export default defineConfig({
 ```
 ### 菜单 自定义建名   （很重要）
 ```
-``
+
+```
 ### ！感叹号表示一定有这个属性
-`
+
+```
+```
+# 日历封装
+安装插件
+```
+cnpm i -S @fullcalendar/core
+cnpm i -S @fullcalendar/interaction
+cnpm i -S @fullcalendar/daygrid
+```
+

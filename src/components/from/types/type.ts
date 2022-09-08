@@ -23,6 +23,8 @@ export interface FormOptions {
     readonly?: boolean, //只读属性
     resize?: string, //文本框不能拖拽
     type?: string,//是input还是textarea类型
+    startPlaceholder?:string,//多选日历专用
+    endPlaceholder?:string,//多选日历专用
     // CSS 样式属性
     style?: CSSProperties,
   },

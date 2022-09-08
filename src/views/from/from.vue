@@ -73,6 +73,43 @@ let options: FormOptions[] = [
             }
         ]
     },
+    {
+        type: 'date-picker',
+        value: '',
+        label: '日历',
+        placeholder: '请选择日期',
+        prop: 'dateVal1',
+        rules: [
+            {
+                required: true,
+                message: '请选择日期',
+                trigger: 'blur'
+            }
+        ],
+    },
+    {
+        type: 'date-picker',
+        value: [],
+        label: '开始结束日历',
+        prop: 'dateVal2',
+        attrs: {
+            rows: "4",
+            startPlaceholder: "开始日期",
+            endPlaceholder: "结束日期",
+            type: "datetimerange",
+            style: {
+                width: "300px",
+                flexGrow:"initial"
+            }
+        },
+        rules: [
+            {
+                required: true,
+                message: '请选择日期',
+                trigger: 'blur'
+            }
+        ],
+    },
     {//有子元素的菜单
         type: 'select',
         value: '',
@@ -278,4 +315,5 @@ let resetForm = (scope: Scope) => {
     </pro-form>
 </template>
 <style lang="less" scoped>
+
 </style>

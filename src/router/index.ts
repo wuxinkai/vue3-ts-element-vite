@@ -117,6 +117,15 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/table/table.vue'),
+        }, {
+            path: '/calendar',
+            name: 'calendar',
+            meta: {
+                title: '日历' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/calendar/calendar.vue'),
         }]
     }
 ]

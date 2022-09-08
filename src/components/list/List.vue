@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    // PropType类型推论，自动补全类型
+// PropType类型推论，自动补全类型
 import { PropType } from 'vue'
 import { ListOpsition, ListItem, ActionOptions } from './types'
 let props = defineProps({

@@ -22,4 +22,5 @@ const clickAction = (val: any) => {
     </div>
 </template>
 <style lang="scss" scoped>
+
 </style>

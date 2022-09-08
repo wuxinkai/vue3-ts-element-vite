@@ -24,7 +24,7 @@ let props = defineProps({
 </script>
 <template>
 
-    <el-popover placement="bottom"  :width="300" trigger="click">
+    <el-popover popper-class="notification-popover-class" placement="bottom" :width="300" trigger="click">
         <template #default>
             <slot></slot>
         </template>
@@ -36,4 +36,10 @@ let props = defineProps({
     </el-popover>
 </template>
 <style lang="scss" scoped>
+svg {
+    width: 1em;
+    height: 1em;
+}
+
+
 </style>

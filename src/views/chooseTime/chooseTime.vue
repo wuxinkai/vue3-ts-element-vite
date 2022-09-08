@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { fa } from "node_modules/element-plus/es/locale";
-
 const startChange = (val: string) => {
     console.log(val);
     debugger
