@@ -108,6 +108,15 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/modalForm/modalForm.vue'),
+        },{
+            path: '/modalTable',
+            name: 'modalTable',
+            meta: {
+                title: '弹窗table' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/modalTable/modalTable.vue'),
         }, {
             path: '/table',
             name: 'table',
@@ -126,7 +135,16 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/calendar/calendar.vue'),
-        }]
+        },{
+            path: '/confirm',
+            name: 'confirm',
+            meta: {
+                title: '日历' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/confirm/confirm.vue'),
+        }], 
     }
 ]
 

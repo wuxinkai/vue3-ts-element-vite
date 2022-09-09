@@ -15,6 +15,7 @@ let Cancel = () => {
 let Confirm = (form: any) => {
     let validate = form.validate()
     let model = form.getFormData()
+    console.log('获取数据', model);
     validate((valid: any) => {
         if (valid) {
             ElMessage.success('验证成功')
@@ -205,19 +206,19 @@ let options: FormOptions[] = [
 
 // 上传成功
 let handleSuccess = (val: any) => {
-  console.log('success')
-  console.log(val)
+    console.log('success')
+    console.log(val)
 }
 // 上传事件 
 let handleChange = (val: any) => {
-  console.log('change')
-  console.log(val)
+    console.log('change')
+    console.log(val)
 }
 </script>
 <template>
     <el-button type="primary" @click='open'>打开弹出</el-button>
-    <pro-modal-form title="编辑" :isScroll="true" labelWidth="80px" v-model:visible="visible" :options="options"    :on-change="handleChange"
-      :on-success="handleSuccess">
+    <pro-modal-form title="编辑" :isScroll="true" labelWidth="80px" v-model:visible="visible" :options="options"
+        :on-change="handleChange" :on-success="handleSuccess">
         <template #uploadArea>
             <el-button size="small" type="primary">点击上传</el-button>
         </template>
@@ -235,4 +236,5 @@ let handleChange = (val: any) => {
     </pro-modal-form>
 </template>
 <style lang="scss" scoped>
+
 </style>

@@ -23,6 +23,7 @@ for (let i in Icons) {
 
 import './mock'
 
+
 app.use(ElementPlus)
 app.use(Directive)
 app.use(createPinia())

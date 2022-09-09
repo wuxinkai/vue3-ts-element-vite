@@ -58,6 +58,11 @@ let data1 = [
         c: "Compass",
       },
       {
+        a: "弹窗table",
+        b: "/modalTable",
+        c: "Compass",
+      },
+      {
         a: "表格",
         b: "/table",
         c: "Message",
@@ -65,6 +70,11 @@ let data1 = [
       {
         a: "日历",
         b: "/calendar",
+        c: "Message",
+      },
+      {
+        a: "消息提示",
+        b: "/confirm",
         c: "Message",
       }
     ],

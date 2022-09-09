@@ -62,15 +62,19 @@ watch(() => dialogVisible.value, val => {
 //作用域插槽传参
 let formDom = ref()
 
+//关闭弹窗前将验证内容去除
+const closeDialog = () => {
+    formDom.value.resetFields()
+}
+
 </script>
 <template>
-    <!-- <div :class="{ 'pro-choose-icon-dialog-body-height': isScroll }"> -->
     <div :class="{ 'pro-choose-icon-dialog-body': isScroll }">
-        <el-dialog v-model="dialogVisible" v-bind="$attrs">
+        <el-dialog v-model="dialogVisible" v-bind="$attrs" @close="closeDialog">
             <!-- 表单内容 -->
             <template #default>
-                <pro-form isScroll :options="options" ref="formDom" :label-width="props.labelWidth" @on-change="onChange"
-                    @before-upload="beforeUpload" @on-preview="onPreview" @on-remove="onRemove"
+                <pro-form isScroll :options="options" ref="formDom" :label-width="props.labelWidth"
+                    @on-change="onChange" @before-upload="beforeUpload" @on-preview="onPreview" @on-remove="onRemove"
                     @before-remove="beforeRemove" @on-success="onSuccess" @on-exceed="onExceed">
                     <template #uploadArea>
                         <slot name="uploadArea"></slot>
@@ -90,4 +94,5 @@ let formDom = ref()
 
 </template>
 <style lang="scss" scoped>
+
 </style>
