@@ -76,6 +76,14 @@ let data1 = [
         a: "消息提示",
         b: "/confirm",
         c: "Message",
+      }, {
+        a: "hooks封装抽离1",
+        b: "/todoListHooks1",
+        c: "Message",
+      }, {
+        a: "hooks封装抽离2",
+        b: "/todoListHooks2",
+        c: "Message",
       }
     ],
   },

@@ -144,6 +144,24 @@ const routes: Array<RouteRecordRaw> = [
                 keepalive: false
             },
             component: () => import('@/views/confirm/confirm.vue'),
+        },{
+            path: '/todoListHooks1',
+            name: 'todoListHooks1',
+            meta: {
+                title: '日历' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/hooks/todoListHooks.vue'),
+        },{
+            path: '/todoListHooks2',
+            name: 'todoListHooks2',
+            meta: {
+                title: '日历' ,
+                icon: '',
+                keepalive: false
+            },
+            component: () => import('@/views/hooks/todoListHooks2.vue'),
         }], 
     }
 ]
